@@ -22,8 +22,8 @@ A Model Context Protocol (MCP) server written in Go that bridges Amazon Q Develo
 
 1. Clone this repository:
 ```bash
-git clone <repository-url>
-cd spec-kit-mcp
+git clone git@github.com:ahanoff/spec-kit-mcp-go.git
+cd spec-kit-mcp-go
 ```
 
 2. Build the MCP server:
@@ -46,7 +46,7 @@ Add the MCP server to your Q Developer configuration at `~/.aws/amazonq/mcp.json
   "mcpServers": {
     "spec-kit": {
       "type": "stdio",
-      "command": "/path/to/spec-kit-mcp/spec-kit-mcp",
+      "command": "/path/to/spec-kit-mcp-go/spec-kit-mcp-go",
       "env": {
         "SPEC_KIT_WORKING_DIR": "/path/to/your/projects"
       },
@@ -82,7 +82,7 @@ To modify the server:
 - Ensure the binary path in `mcp.json` is correct
 - Check that spec-kit is installed: `npx @github/spec-kit --version`
 - Verify Go is installed: `go version`
-- Test the server manually: `echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}' | ./spec-kit-mcp`
+- Test the server manually: `echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}' | ./spec-kit-mcp-go`
 
 ## License
 
