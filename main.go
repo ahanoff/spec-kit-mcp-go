@@ -192,7 +192,7 @@ func (s *SpecKitServer) handleInitProject(ctx context.Context, req *mcp.CallTool
 	}
 
 	// Run spec-kit init command
-	cmd := exec.Command("specify", "init", args.ProjectName, "--ai-assistant", args.AIAssistant)
+	cmd := exec.Command("specify", "init", args.ProjectName, "--ai", args.AIAssistant, "--ignore-agent-tools")
 	cmd.Dir = s.workingDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
