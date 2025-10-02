@@ -192,7 +192,7 @@ func (s *SpecKitServer) handleInitProject(ctx context.Context, req *mcp.CallTool
 	}
 
 	// Run spec-kit init command
-	cmd := exec.Command("npx", "@github/spec-kit", "init", args.ProjectName, "--ai-assistant", args.AIAssistant)
+	cmd := exec.Command("specify", "init", args.ProjectName, "--ai-assistant", args.AIAssistant)
 	cmd.Dir = s.workingDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
@@ -236,7 +236,7 @@ func (s *SpecKitServer) handleSpecify(ctx context.Context, req *mcp.CallToolRequ
 	specFile := filepath.Join(s.workingDir, "temp_spec.md")
 	
 	// Run spec-kit specify command
-	cmd := exec.Command("npx", "@github/spec-kit", "specify", args.FeatureDescription)
+	cmd := exec.Command("specify", "specify", args.FeatureDescription)
 	cmd.Dir = s.workingDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
@@ -286,7 +286,7 @@ func (s *SpecKitServer) handlePlan(ctx context.Context, req *mcp.CallToolRequest
 	}
 
 	// Run spec-kit plan command
-	cmd := exec.Command("npx", "@github/spec-kit", "plan", args.SpecFile)
+	cmd := exec.Command("specify", "plan", args.SpecFile)
 	cmd.Dir = s.workingDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
@@ -331,7 +331,7 @@ func (s *SpecKitServer) handleImplement(ctx context.Context, req *mcp.CallToolRe
 	}
 
 	// Run spec-kit implement command
-	cmd := exec.Command("npx", "@github/spec-kit", "implement", args.SpecFile, "--output", args.OutputDir)
+	cmd := exec.Command("specify", "implement", args.SpecFile, "--output", args.OutputDir)
 	cmd.Dir = s.workingDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
@@ -372,7 +372,7 @@ func (s *SpecKitServer) handleAnalyze(ctx context.Context, req *mcp.CallToolRequ
 	}
 
 	// Run spec-kit analyze command
-	cmd := exec.Command("npx", "@github/spec-kit", "analyze", args.ProjectPath)
+	cmd := exec.Command("specify", "analyze", args.ProjectPath)
 	cmd.Dir = s.workingDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {
@@ -412,7 +412,7 @@ func (s *SpecKitServer) handleTasks(ctx context.Context, req *mcp.CallToolReques
 	}
 
 	// Run spec-kit tasks command
-	cmd := exec.Command("npx", "@github/spec-kit", "tasks", args.SpecFile)
+	cmd := exec.Command("specify", "tasks", args.SpecFile)
 	cmd.Dir = s.workingDir
 	output, err := cmd.CombinedOutput()
 	if err != nil {

@@ -14,9 +14,10 @@ A Model Context Protocol (MCP) server written in Go that bridges Amazon Q Develo
 ## Prerequisites
 
 - Go 1.21 or later
-- Node.js 18 or later
+- Python 3.8 or later
+- uv (Python package manager)
 - Amazon Q Developer CLI
-- Spec-Kit installed globally: `npm install -g @github/spec-kit`
+- Spec-Kit installed globally: `uv tool install specify-cli --from git+https://github.com/github/spec-kit.git`
 
 ## Installation
 
@@ -34,7 +35,7 @@ chmod +x build.sh
 
 3. Install spec-kit globally:
 ```bash
-npm install -g @github/spec-kit
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 ```
 
 ## Configuration
@@ -80,7 +81,7 @@ To modify the server:
 ## Troubleshooting
 
 - Ensure the binary path in `mcp.json` is correct
-- Check that spec-kit is installed: `npx @github/spec-kit --version`
+- Check that spec-kit is installed: `specify --version`
 - Verify Go is installed: `go version`
 - Test the server manually: `echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}' | ./spec-kit-mcp-go`
 
